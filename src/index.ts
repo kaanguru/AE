@@ -1,18 +1,13 @@
 import { render } from "@nexrender/core";
-const aeDosyasi = "file:///D:/test/AE/deneme.aep";
-const renderYeri = "D:/test/AE/renders/";
+const cwd = process.cwd();
+import { settings } from "./settings.js";
+const renderYeri = cwd+"/renders/";
 const main = async () => {
   const isimler = ["ali", "veli", "49-50"];
 
   for (const isim of isimler) {
     const myJobJson = {
-      template: {
-        src: aeDosyasi ,
-        composition: "test_comp",
-        outputModule: "H.264 - Match Render Settings - 15 Mbps",
-        outputExt: "mp4",
-        settingsTemplate: "Draft Settings",
-      },
+      template: settings,
       assets: [
         {
           type: "data",
@@ -27,7 +22,7 @@ const main = async () => {
           {
             module: "@nexrender/action-copy",
             input: "result.mp4",
-            output: `${renderYeri}result_${isim}.mp4`, // Use concatenation for dynamic filenames
+            output: `${renderYeri}result_${isim}.mp4`, 
           },
         ],
       },
