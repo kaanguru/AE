@@ -1,0 +1,22 @@
+{
+  "name": "ae",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "render": "pnpm build && pnpm delete && node dist/index.js",
+    "build": "tsc",
+    "delete": "pnpm build && node dist/delete.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nexrender/core": "^1.45.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.5",
+    "typescript": "^5.2.2"
+  }
+}
