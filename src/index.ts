@@ -1,6 +1,7 @@
 import { render } from "@nexrender/core";
 const cwd = process.cwd();
 import { settings } from "./settings.js";
+import { assets } from "./assets.js";
 const renderYeri = cwd+"/renders/";
 const main = async () => {
   const isimler = ["ali", "veli", "49-50"];
@@ -8,15 +9,7 @@ const main = async () => {
   for (const isim of isimler) {
     const myJobJson = {
       template: settings,
-      assets: [
-        {
-          type: "data",
-          composition: "Animated_Text_5",
-          layerName: "celebrate",
-          property: "Source Text",
-          value: isim,
-        },
-      ],
+      assets: assets(isim),
       actions: {
         postrender: [
           {
